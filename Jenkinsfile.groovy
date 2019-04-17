@@ -1,20 +1,28 @@
 pipeline {
-  agent any
-  stage ('Build') {
- 
-    git credentialsId: 'ea4c3770-b2ed-4639-9ffc-cc3e586e454c', url: 'https://github.com/SujataKale97/webapp.git'
-    withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-     maven: 'M3'){
-      
-      bat 'mvn package'
+    agent any
+    tools {
+        maven 'M3'
+        jdk 'LocalJDK'
     }
-  }
-  
-  stage ('Deploy')
-  {
-     steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true deploy' 
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${MAVEN_HOME}"
+                '''
             }
-  }
+        }
+
+        stage ('Build') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
+        }
+    }
 }
