@@ -21,27 +21,3 @@
   </build>
 </project>
 
-<profiles>
-    <profile>
-        <id>prod</id>
-        <properties>
-            <deploy.env>prod</deploy.env>
-            <cargo.hostname>srvprd001</cargo.hostname>
-            <cargo.servlet.port>8081</cargo.servlet.port>
-            <cargo.tomcat.manager.url>http://srvprd001:8080/manager</cargo.tomcat.manager.url>
-            <cargo.remote.username>tomcat</cargo.remote.username>
-            <cargo.remote.password>tomcat</cargo.remote.password>
-        </properties>
-    </profile>
-    <profile>
-        <id>test</id>
-        <properties>
-            <deploy.env>dev</deploy.env>
-            <cargo.hostname>srvtst001</cargo.hostname>
-            <cargo.servlet.port>9090</cargo.servlet.port>
-            <cargo.tomcat.manager.url>http://srvtst001:9090/manager</cargo.tomcat.manager.url>
-            <cargo.remote.username>tomcat</cargo.remote.username>
-            <cargo.remote.password>tomcat</cargo.remote.password>
-        </properties>
-    </profile>
-</profiles>
