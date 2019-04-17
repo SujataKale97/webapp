@@ -19,5 +19,11 @@
   <build>
     <finalName>WebApp</finalName>
   </build>
+  
+  <repository>
+      <id>my-repo1</id>
+      <name>your custom repo</name>
+      <url>http://localhost:8081/</url>
+    </repository>
 </project>
 
