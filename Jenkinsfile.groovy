@@ -6,7 +6,7 @@ node("master"){
         // Maven installation declared in the Jenkins "Global Tool Configuration"
       maven: 'M3'){
         
-    bat 'mvn -Dmaven.test.failure.ignore=true clean package'
+    bat 'mvn clean package'
     }
   }
   
