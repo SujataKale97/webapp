@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="tests" parallel="tests" thread-count="2">
+    
+    <test name="front-end">
+        <packages>
+            <package name="com.websystique.testng.frontend.*" />
+        </packages>
+    </test>
+
+    <test name="back-end">
+        <packages>
+            <package name="com.websystique.testng.backend.*" />
+        </packages>
+    </test>
+
+</suite>
