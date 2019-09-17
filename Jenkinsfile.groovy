@@ -18,8 +18,5 @@ node("master"){
   -Dsonar.login=5a419fb91d35fa2abb817fc8f9afd474fedb5a05'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
-  stage ('deploy')
-  {
-    bat '''copy C:\\Apps\\Jenkins\\jobs\\WebApp-Pipe\\workspace\\target\\*.war C:\\apache-tomcat-7.0.94\\webapps'''
-  }
+  
 }
