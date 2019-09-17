@@ -11,7 +11,7 @@ node("master"){
   }
   
   stage('SonarQube analysis') {
-    withSonarQubeEnv(credentialsId: 'f02b3e56-48c3-46ca-9947-97fbebdf9c7e', installationName:'sonar') {
+    withSonarQubeEnv('sonar') {
      bat 'mvn clean package sonar:sonar -Dsonar.projectKey=Maven-WebApp -Dsonar.host.url=http://localhost:9000  '
     } 
   }
