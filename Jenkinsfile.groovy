@@ -11,12 +11,9 @@ node("master"){
   }
   
   stage('SonarQube analysis') {
-    withSonarQubeEnv('sonar') {
-     bat 'mvn clean package sonar:sonar  \
-  -Dsonar.projectKey=lu.amazon.aws.demo:WebApp \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=5a419fb91d35fa2abb817fc8f9afd474fedb5a05'
-    } // submitted SonarQube taskId is automatically attached to the pipeline context
+    withSonarQubeEnv(credentialsId: 'f02b3e56-48c3-46ca-9947-97fbebdf9c7e', installationName:'sonar') {
+     bat 'mvn clean package sonar:sonar -Dsonar.projectKey=Maven-WebApp -Dsonar.host.url=http://localhost:9000  '
+    } 
   }
   
 }
