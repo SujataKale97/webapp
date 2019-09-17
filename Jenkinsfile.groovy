@@ -12,7 +12,7 @@ node("master"){
   
   stage('SonarQube analysis') {
     withSonarQubeEnv('sonar') {
-      sh 'mvn clean package sonar:sonar'
+     bat 'mvn clean package sonar:sonar'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
   stage ('deploy')
