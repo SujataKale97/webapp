@@ -11,7 +11,7 @@ node("master"){
   
   stage('SonarQube analysis') {
     withSonarQubeEnv('sonar') {
-     bat 'mvn sonar:sonar -Dsonar.projectKey=Maven-WebApp -Dsonar.host.url=http://localhost:9000  '
+     bat 'mvn sonar:sonar -Dsonar.projectName=Maven-WebApp'
     } 
   }
   
